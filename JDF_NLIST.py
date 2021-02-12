@@ -231,47 +231,47 @@ if __name__ == "__main__":
 
     try:
         k_u = PARAMS_JDF.k_u
-    except NameError:
+    except (NameError, AttributeError) as e:
         k_u = 228.4727
     try:
         a_u = PARAMS_JDF.a_u
-    except NameError:
+    except (NameError, AttributeError) as e:
         a_u = 1.0121809
     try:
         SlicesMultiplyFactor = PARAMS_JDF.SlicesMultiplyFactor
-    except NameError:
+    except (NameError, AttributeError) as e:
         SlicesMultiplyFactor = 10
     try:
         Num_Of_Slice_Particles = PARAMS_JDF.NumOfSliceParticles
-    except NameError:
+    except (NameError, AttributeError) as e:
         Num_Of_Slice_Particles = 800
     try:
         binnumber_X = PARAMS_JDF.X_DensitySampling
-    except NameError:
+    except (NameError, AttributeError) as e:
         binnumber_X = 40
     try:
         binnumber_Y = PARAMS_JDF.Y_DensitySampling
-    except NameError:
+    except (NameError, AttributeError) as e:
         binnumber_Y = 40
     try:
         binnumber_Z = PARAMS_JDF.Z_DensitySampling
-    except NameError:
+    except (NameError, AttributeError) as e:
         binnumber_Z = 40
     try:
         S_factor = PARAMS_JDF.BeamStretchFactor
-    except NameError:
+    except (NameError, AttributeError) as e:
         S_factor = 0.0
     try:
         RNG_seed = PARAMS_JDF.RNG_seed
-    except NameError:
+    except (NameError, AttributeError) as e:
         RNG_seed = np.random.randint(0, 2 ** 32)
     try:
         out_file = str(PARAMS_JDF.out_file)
-    except NameError:
+    except (NameError, AttributeError) as e:
         # default name = base name + JDF + seed
         out_file = file_name_base + "_JDF_" + str(RNG_seed) + ".h5"
 
-    print ("random number generator seed is initialued to", RNG_seed)
+    print ("random number generator seed is initialized to", RNG_seed)
     np.random.seed(RNG_seed)
     # Print to screen parameters used for calculations.
     # ==============================================================================
